@@ -1,6 +1,3 @@
-# Cuphead-em-Assembly
-
-
 # Projeto Cuphead - Jogo em Assembly  
 
 Bem-vindo ao repositório do **Projeto Cuphead**, uma recriação do famoso jogo **Cuphead** utilizando Assembly. Este projeto explora os desafios e a complexidade do desenvolvimento em Assembly, recriando alguns cenários icônicos do jogo original. Projeto educacional para explorar os desafios do desenvolvimento em baixo nível.

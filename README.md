@@ -37,7 +37,7 @@ Para garantir a organização e a consistência do desenvolvimento, adotamos as 
    - Novos códigos e alterações serão feitos no diretório `Desenvolvimento`.  
    - Este ambiente permitirá testes e validações antes de qualquer alteração no código final.  
 2. **Ambiente de Produção**:  
-   - Após a validação no ambiente de `Desenvolvimento`, o código será transferido para o diretório `Projeto`, que conterá a versão final consolidada do jogo.  
+   - Após a validação no ambiente de `Desenvolvimento`, o código será transferido para o diretório `Jogo`, que conterá a versão final consolidada do jogo.  
 
 ---
 

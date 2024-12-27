@@ -4,9 +4,9 @@ main:
   	lui $8, 0x1001 	# Primeiro endereço de memoria
     
   	# Criaçao do ceu
-  	ori $9, $0, 0xfff2cc  # codigo da cor
-  	li $10, 32768   	# Numero de unidade de pexels 
-  	li $11, 0       	# Contador
+  	ori $9, $0, 0xfff2cc  	# codigo da cor
+  	li $10, 32768   		# Numero de unidade de pexels 
+  	li $11, 0       		# Contador
 
 forCeu: 
   	beq $11, $10, end 	# Verificador de condiçao

@@ -52,7 +52,7 @@ desenha_mar1:
 	addi $8, $8, 25600      # Posição inicial do mar (linha 50) 
 	
 	ori $9, $0, 0x6d9eeb 	# Cor do mar	
-	li $10, 640    	# Número de unidades de pixels do mar (128*14)  
+	li $10, 640    		# Número de unidades de pixels do mar (128*14)  
 	li $11, 0      		# Contador         
 	
 for_mar1:
@@ -77,7 +77,7 @@ ondas_mar1:
 
     	lui $8, 0x1001          # Primeiro endereço de memória
     	addi $8, $8, 24588      # Posição inicial da segunda linha do mar (linha 47)
-    	jal forOndasTracos2    # Chamada para desenhar a segunda linha
+    	jal forOndasTracos2   	# Chamada para desenhar a segunda linha
 
 	lui $8, 0x1001          # Primeiro endereço de memória
     	addi $8, $8, 24084      # Posição inicial da terceira linha do mar (linha 46)
@@ -115,7 +115,7 @@ onda_mar2:
     	addi $8, $8, 27648      # Posição inicial do mar (linha 54)
     	
     	li $12, 10              # Número de traco para as linhas
-    	jal forOndasTracos1    # Chamada para desenhar a primeira linha
+    	jal forOndasTracos1    	# Chamada para desenhar a primeira linha
     	
 	lui $8, 0x1001          # Primeiro endereço de memória
     	addi $8, $8, 27136       
@@ -154,18 +154,18 @@ onda_mar3:
 	add $25, $0, $31        # Salva o valor do registrador de retorno
     	
     	lui $8, 0x1001          # Primeiro endereço de memória
-    	addi $8, $8, 29712     # Posição inicial do mar (linha 58)
+    	addi $8, $8, 29712     	# Posição inicial do mar (linha 58)
     	
     	li $12, 10              # Número de traco para as linhas
-    	jal forOndasTracos1    # Chamada para desenhar a primeira linha
+    	jal forOndasTracos1    	# Chamada para desenhar a primeira linha
     	
     	lui $8, 0x1001          # Primeiro endereço de memória
-    	addi $8, $8, 29204     # Posição inicial do mar (linha 58)
+    	addi $8, $8, 29204     	# Posição inicial do mar (linha 58)
     	jal forOndasTracos2    # Chamada para desenhar a primeira linha
     	
     	lui $8, 0x1001          # Primeiro endereço de memória
-    	addi $8, $8, 28696     # Posição inicial do mar (linha 58)
-    	jal forOndasTracos3    # Chamada para desenhar a primeira linha	
+    	addi $8, $8, 28696     	# Posição inicial do mar (linha 58)
+    	jal forOndasTracos3    	# Chamada para desenhar a primeira linha	
     	
    	add $31, $0, $25        # Restaura o valor do registrador de retorno
     	jr $31                  # Retorna para o chamador     	 
@@ -177,7 +177,7 @@ onda_mar3:
 desenha_mar4:
 	
 	lui $8, 0x1001   	# Primeiro endereço de memória	      
-	addi $8, $8, 31232     # Posição inicial do mar (linha 59) 
+	addi $8, $8, 31232     	# Posição inicial do mar (linha 59) 
 	
 	ori $9, $0, 0x073763 	# Cor do mar	
 	li $10, 512     	# Número de unidades de pixels do mar (128*14)  
@@ -200,15 +200,15 @@ onda_mar4:
     	addi $8, $8, 30720      # Posição inicial do mar (linha 58)
     	
     	li $12, 10              # Número de traco para as linhas
-    	jal forOndasTracos1    # Chamada para desenhar a primeira linha
+    	jal forOndasTracos1    	# Chamada para desenhar a primeira linha
 	
     	lui $8, 0x1001          # Primeiro endereço de memória
-    	addi $8, $8, 30216     # Posição inicial do mar (linha 58)
-    	jal forOndasTracos2    # Chamada para desenhar a primeira linha
+    	addi $8, $8, 30216     	# Posição inicial do mar (linha 58)
+    	jal forOndasTracos2    	# Chamada para desenhar a primeira linha
    	
    	lui $8, 0x1001          # Primeiro endereço de memória
-    	addi $8, $8, 29712     # Posição inicial do mar (linha 58)
-    	jal forOndasTracos3    # Chamada para desenhar a primeira linha
+    	addi $8, $8, 29712     	# Posição inicial do mar (linha 58)
+    	jal forOndasTracos3    	# Chamada para desenhar a primeira linha
     	
    	add $31, $0, $25        # Restaura o valor do registrador de retorno
     	jr $31                  # Retorna para o chamador     	 	
@@ -218,7 +218,7 @@ forOndasTracos1:
     	li $13, 0               # Inicializa o contador de traços
 
 loop1Linha1:
-    	beq $13, $12, retorna  # Se todos os traços foram desenhados, retorna
+    	beq $13, $12, retorna  	# Se todos os traços foram desenhados, retorna
 
     	# Desenha 12 pixels para o traço atual
     	li $10, 12              # Número de pixels no traço
@@ -242,7 +242,7 @@ forOndasTracos2:
     	li $13, 0               # Inicializa o contador de traços
 
 loop1Linha2:
-    	beq $13, $12, retorna  # Se todos os traços foram desenhados, retorna
+    	beq $13, $12, retorna  	# Se todos os traços foram desenhados, retorna
 
     	# Desenha 8 pixels para o traço atual
     	li $10, 8               # Número de pixels no traço
@@ -268,7 +268,7 @@ forOndasTracos3:
     	li $13, 0               # Inicializa o contador de traços
 
 loop1Linha3:
-    	beq $13, $12, retorna  # Se todos os traços foram desenhados, retorna
+    	beq $13, $12, retorna  	# Se todos os traços foram desenhados, retorna
 
     	# Desenha 4 pixels para o traço atual
     	li $10, 4               # Número de pixels no traço

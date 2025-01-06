@@ -461,4 +461,4 @@ loop1Traco3:
 onda1intervalo3:
     	addi $8, $8, 36         # Adiciona 9 pixels de intervalo (9 * 4 = 36)
     	addi $13, $13, 1        # Incrementa o contador de traços
-    	j loop1Linha3         	# Repetição do loop de traços    	       	           	       	
+    	j loop1Linha3         	# Repetição do loop de traços    	  

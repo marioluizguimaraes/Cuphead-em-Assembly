@@ -20,10 +20,10 @@ main:
 	jal desenha_mar4
 	
 	# Chamada para desenhar o nuvem
-	jal desehar_nuvem1
+	jal desehar_nuvem2
 	
 	# Chamada para desenhar o nuvem
-	jal desehar_nuvem2
+	jal desehar_nuvem3
 	
 	
 	
@@ -55,7 +55,7 @@ for_ceu:
 
 # Sub-rotina para desenhar nuvem 1
 
-desehar_nuvem1:
+desehar_nuvem2:
 	add $25, $0, $31        # Salva o valor do registrador de retorno
 	
 	ori $9, $0, 0xf4a29e	# Cor
@@ -181,7 +181,7 @@ desehar_nuvem1:
 
 # Sub-rotina para desenhar nuvem 2
 
-desehar_nuvem2:
+desehar_nuvem3:
 	add $25, $0, $31        # Salva o valor do registrador de retorno
 	
 	ori $9, $0, 0xf4a29e	# Cor
@@ -269,12 +269,100 @@ desehar_nuvem2:
 	ori $9, $0, 0xe1827e	# Cor
 	
 	lui $8, 0x1001   	# Primeiro endereço de memória	      
-	addi $8, $8, 9916      	# Posição inicial (512*19) + (4x47)
-	li $10, 4  		# Número de unidades de pixels
+	addi $8, $8, 5404      	# Posição inicial (512*10) + (4x71)
+	li $10, 5  		# Número de unidades de pixels
 	li $11, 0      		# Contador    
 	jal desenha_Linha
 	
+	addi $8, $8, 36    	# espaço de 9 unidades de pixels, (4*3)
+	li $10, 3  		# Número de unidades de pixels
+	li $11, 0      		# Contador    
+	jal desenha_Linha
 	
+	lui $8, 0x1001   	# Primeiro endereço de memória	      
+	addi $8, $8, 5908      	# Posição inicial (512*11) + (4x69)
+	li $10, 9  		# Número de unidades de pixels
+	li $11, 0      		# Contador    
+	jal desenha_Linha
+	
+	addi $8, $8, 24    	# espaço de 6 unidades de pixels, (4*6)
+	li $10, 5  		# Número de unidades de pixels
+	li $11, 0      		# Contador    
+	jal desenha_Linha
+	
+	lui $8, 0x1001   	# Primeiro endereço de memória	      
+	addi $8, $8, 6416      	# Posição inicial (512*12) + (4x68)
+	li $10, 10  		# Número de unidades de pixels
+	li $11, 0      		# Contador    
+	jal desenha_Linha
+
+	addi $8, $8, 20    	# espaço de 5 unidades de pixels, (4*5)
+	li $10, 9  		# Número de unidades de pixels
+	li $11, 0      		# Contador    
+	jal desenha_Linha
+
+	lui $8, 0x1001   	# Primeiro endereço de memória	      
+	addi $8, $8, 6920      	# Posição inicial (512*13) + (4x66)
+	li $10, 13  		# Número de unidades de pixels
+	li $11, 0      		# Contador    
+	jal desenha_Linha
+	
+	addi $8, $8, 8    	# espaço de 2 unidades de pixels, (4*5)
+	li $10, 13  		# Número de unidades de pixels
+	li $11, 0      		# Contador    
+	jal desenha_Linha
+	
+	lui $8, 0x1001   	# Primeiro endereço de memória	      
+	addi $8, $8, 7424      	# Posição inicial (512*14) + (4x64)
+	li $10, 13  		# Número de unidades de pixels
+	li $11, 0      		# Contador    
+	jal desenha_Linha
+	
+	addi $8, $8, 8    	# espaço de 2 unidades de pixels, (4*5)
+	li $10, 17  		# Número de unidades de pixels
+	li $11, 0      		# Contador    
+	jal desenha_Linha
+
+	lui $8, 0x1001   	# Primeiro endereço de memória	      
+	addi $8, $8, 7932      	# Posição inicial (512*15) + (4x63)
+	li $10, 13  		# Número de unidades de pixels
+	li $11, 0      		# Contador    
+	jal desenha_Linha
+	
+	addi $8, $8, 8    	# espaço de 2 unidades de pixels, (4*2)
+	li $10, 20  		# Número de unidades de pixels
+	li $11, 0      		# Contador    
+	jal desenha_Linha
+	
+	lui $8, 0x1001   	# Primeiro endereço de memória	      
+	addi $8, $8, 8448      	# Posição inicial (512*16) + (4x64)
+	li $10, 11  		# Número de unidades de pixels
+	li $11, 0      		# Contador    
+	jal desenha_Linha
+	
+	addi $8, $8, 4    	# espaço de 1 unidades de pixels, (4*1)
+	li $10, 24 		# Número de unidades de pixels
+	li $11, 0      		# Contador    
+	jal desenha_Linha		
+	
+	
+	lui $8, 0x1001   	# Primeiro endereço de memória	      
+	addi $8, $8, 8968      	# Posição inicial (512*17) + (4x66)
+	li $10, 35 		# Número de unidades de pixels
+	li $11, 0      		# Contador    
+	jal desenha_Linha
+	
+	lui $8, 0x1001   	# Primeiro endereço de memória	      
+	addi $8, $8, 9492      	# Posição inicial (512*18) + (4x69)
+	li $10, 27		# Número de unidades de pixels
+	li $11, 0      		# Contador    
+	jal desenha_Linha
+	
+	lui $8, 0x1001   	# Primeiro endereço de memória	      
+	addi $8, $8, 10048      	# Posição inicial (512*18) + (4x69)
+	li $10, 10		# Número de unidades de pixels
+	li $11, 0      		# Contador    
+	jal desenha_Linha
 	
 	add $31, $0, $25        # Restaura o valor do registrador de retorno
     	jr $31

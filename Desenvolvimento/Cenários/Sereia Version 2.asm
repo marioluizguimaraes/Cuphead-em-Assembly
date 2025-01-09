@@ -57,7 +57,6 @@ for_ceu:
 
 #=================================================================================================================
 
-
 # Sub-rotina para desenhar nuvem 1
 
 desehar_nuvem1:
@@ -148,7 +147,7 @@ desehar_nuvem1:
 	ori $9, $0, 0xe1827e	# Cor
 	
 	lui $8, 0x1001   	# Primeiro endereço de memória	      
-	addi $8, $8, 5404      	# Posição inicial (512*10) + (4x71)
+	addi $8, $8, 3116      	# Posição inicial (512*6) + (4x11)
 	li $10, 5  		# Número de unidades de pixels
 	li $11, 0      		# Contador    
 	jal desenha_Linha
@@ -159,7 +158,7 @@ desehar_nuvem1:
 	jal desenha_Linha
 	
 	lui $8, 0x1001   	# Primeiro endereço de memória	      
-	addi $8, $8, 5908      	# Posição inicial (512*11) + (4x69)
+	addi $8, $8, 3620      	# Posição inicial (512*7) + (4x9)
 	li $10, 9  		# Número de unidades de pixels
 	li $11, 0      		# Contador    
 	jal desenha_Linha
@@ -170,7 +169,7 @@ desehar_nuvem1:
 	jal desenha_Linha
 	
 	lui $8, 0x1001   	# Primeiro endereço de memória	      
-	addi $8, $8, 6416      	# Posição inicial (512*12) + (4x68)
+	addi $8, $8, 4128      	# Posição inicial (512*8) + (4x8)
 	li $10, 10  		# Número de unidades de pixels
 	li $11, 0      		# Contador    
 	jal desenha_Linha
@@ -181,7 +180,7 @@ desehar_nuvem1:
 	jal desenha_Linha
 
 	lui $8, 0x1001   	# Primeiro endereço de memória	      
-	addi $8, $8, 6920      	# Posição inicial (512*13) + (4x66)
+	addi $8, $8, 4632      	# Posição inicial (512*9) + (4x6)
 	li $10, 13  		# Número de unidades de pixels
 	li $11, 0      		# Contador    
 	jal desenha_Linha
@@ -192,7 +191,7 @@ desehar_nuvem1:
 	jal desenha_Linha
 	
 	lui $8, 0x1001   	# Primeiro endereço de memória	      
-	addi $8, $8, 7424      	# Posição inicial (512*14) + (4x64)
+	addi $8, $8, 5136      	# Posição inicial (512*10) + (4x4)
 	li $10, 13  		# Número de unidades de pixels
 	li $11, 0      		# Contador    
 	jal desenha_Linha
@@ -203,7 +202,7 @@ desehar_nuvem1:
 	jal desenha_Linha
 
 	lui $8, 0x1001   	# Primeiro endereço de memória	      
-	addi $8, $8, 7932      	# Posição inicial (512*15) + (4x63)
+	addi $8, $8, 5644      	# Posição inicial (512*15) + (4x63)
 	li $10, 13  		# Número de unidades de pixels
 	li $11, 0      		# Contador    
 	jal desenha_Linha
@@ -214,7 +213,7 @@ desehar_nuvem1:
 	jal desenha_Linha
 	
 	lui $8, 0x1001   	# Primeiro endereço de memória	      
-	addi $8, $8, 8448      	# Posição inicial (512*16) + (4x64)
+	addi $8, $8, 6160      	# Posição inicial (512*16) + (4x64)
 	li $10, 11  		# Número de unidades de pixels
 	li $11, 0      		# Contador    
 	jal desenha_Linha
@@ -226,7 +225,7 @@ desehar_nuvem1:
 	
 	
 	lui $8, 0x1001   	# Primeiro endereço de memória	      
-	addi $8, $8, 8968      	# Posição inicial (512*17) + (4x66)
+	addi $8, $8, 6680      	# Posição inicial (512*13) + (4x6)
 	li $10, 35 		# Número de unidades de pixels
 	li $11, 0      		# Contador    
 	jal desenha_Linha
@@ -247,6 +246,7 @@ desehar_nuvem1:
     	jr $31
 
 
+#=================================================================================================================
 
 # Sub-rotina para desenhar nuvem 2
 

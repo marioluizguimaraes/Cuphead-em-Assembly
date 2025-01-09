@@ -22,6 +22,9 @@ main:
 	# Chamada para desenhar o nuvem
 	jal desehar_nuvem1
 	
+	# Chamada para desenhar o nuvem
+	jal desehar_nuvem2
+	
 	
 	
 	# Finalização do programa
@@ -186,12 +189,81 @@ desehar_nuvem2:
 	li $14, 4		# Controle de direcao (Horizontal)
 	
 	lui $8, 0x1001   	# Primeiro endereço de memória	      
-	addi $8, $8, 9916      	# Posição inicial (512*19) + (4x47)
-	li $10, 7  		# Número de unidades de pixels
+	addi $8, $8, 4892     	# Posição inicial (512*9) + (4x71)
+	li $10, 5  		# Número de unidades de pixels
 	li $11, 0      		# Contador    
 	jal desenha_Linha
 	
-
+	lui $8, 0x1001   	# Primeiro endereço de memória	      
+	addi $8, $8, 5396     	# Posição inicial (512*10) + (4x69)
+	li $10, 9  		# Número de unidades de pixels
+	li $11, 0      		# Contador    
+	jal desenha_Linha
+	      
+	addi $8, $8, 28    	# espaço de 7 unidades de pixels, (4*7)
+	li $10, 6  		# Número de unidades de pixels
+	li $11, 0      		# Contador    
+	jal desenha_Linha
+	
+	lui $8, 0x1001   	# Primeiro endereço de memória	      
+	addi $8, $8, 5900     	# Posição inicial (512*11) + (4x67)
+	li $10, 13  		# Número de unidades de pixels
+	li $11, 0      		# Contador    
+	jal desenha_Linha
+	
+	addi $8, $8, 12    	# espaço de 3 unidades de pixels, (4*3)
+	li $10, 11  		# Número de unidades de pixels
+	li $11, 0      		# Contador    
+	jal desenha_Linha
+	
+	lui $8, 0x1001   	# Primeiro endereço de memória	      
+	addi $8, $8, 6408     	# Posição inicial (512*12) + (4x66)
+	li $10, 31 		# Número de unidades de pixels
+	li $11, 0      		# Contador    
+	jal desenha_Linha
+	
+	lui $8, 0x1001   	# Primeiro endereço de memória	      
+	addi $8, $8, 6916     	# Posição inicial (512*13) + (4x65)
+	li $10, 34 		# Número de unidades de pixels
+	li $11, 0      		# Contador    
+	jal desenha_Linha
+	
+	lui $8, 0x1001   	# Primeiro endereço de memória	      
+	addi $8, $8, 7424     	# Posição inicial (512*14) + (4x64)
+	li $10, 37 		# Número de unidades de pixels
+	li $11, 0      		# Contador    
+	jal desenha_Linha
+	
+	lui $8, 0x1001   	# Primeiro endereço de memória	      
+	addi $8, $8, 7932     	# Posição inicial (512*15) + (4x63)
+	li $10, 40 		# Número de unidades de pixels
+	li $11, 0      		# Contador    
+	jal desenha_Linha
+		
+	lui $8, 0x1001   	# Primeiro endereço de memória	      
+	addi $8, $8, 8448     	# Posição inicial (512*16) + (4x64)
+	li $10, 39 		# Número de unidades de pixels
+	li $11, 0      		# Contador    
+	jal desenha_Linha
+	
+	lui $8, 0x1001   	# Primeiro endereço de memória	      
+	addi $8, $8, 8968     	# Posição inicial (512*17) + (4x66)
+	li $10, 35 		# Número de unidades de pixels
+	li $11, 0      		# Contador    
+	jal desenha_Linha
+	
+	lui $8, 0x1001   	# Primeiro endereço de memória	      
+	addi $8, $8, 9492    	# Posição inicial (512*18) + (4x69)
+	li $10, 30 		# Número de unidades de pixels
+	li $11, 0      		# Contador    
+	jal desenha_Linha
+	
+	lui $8, 0x1001   	# Primeiro endereço de memória	      
+	addi $8, $8, 10048    	# Posição inicial (512*19) + (4x80)
+	li $10, 16 		# Número de unidades de pixels
+	li $11, 0      		# Contador    
+	jal desenha_Linha
+	
 #-----------------------------------------------------------------------------------------------------------------
 
 	ori $9, $0, 0xe1827e	# Cor

@@ -185,9 +185,25 @@ desenharfantasma:
 	jal desenha_traco
 	
 	addi $8, $8, 464	# 512 - 14*4		
-	li $10, 10 		# Número de unidade de pixelsmero de unidade de pixels
+	li $10, 9 		# Número de unidade de pixelsmero de unidade de pixels
 	li $11, 0              	# Contador
 	jal desenha_traco
+	
+	addi $8, $8, 480	# 512 - 8*4		
+	li $10, 1 		# Número de unidade de pixelsmero de unidade de pixels
+	li $11, 0              	# Contador
+	jal desenha_traco
+	
+	addi $8, $8, 12				
+	li $10, 2 		# Número de unidade de pixelsmero de unidade de pixels
+	li $11, 0              	# Contador
+	jal desenha_traco
+	
+	addi $8, $8, 488	# 512 - 8*4		
+	li $10, 2 		# Número de unidade de pixelsmero de unidade de pixels
+	li $11, 0              	# Contador
+	jal desenha_traco
+	
 	
 	
 	

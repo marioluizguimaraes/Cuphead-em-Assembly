@@ -241,6 +241,8 @@ desenharfantasma:
 	sw $9, 12($8)
 	sw $9, 512($8)
 	sw $9, 520($8)
+	
+	
 			
 retorna:
 	jr $31	

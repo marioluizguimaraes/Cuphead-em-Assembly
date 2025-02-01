@@ -166,13 +166,28 @@ desenharfantasma:
 	li $11, 0              	# Contador
 	jal desenha_traco
 	
-	addi $8, $8, 512	# 4*4		
-	li $10, 11 		# Número de unidade de pixelsmero de unidade de pixels
+	addi $8, $8, 452	# 4*4		
+	li $10, 1 		# Número de unidade de pixelsmero de unidade de pixels
 	li $11, 0              	# Contador
 	jal desenha_traco
 	
 		
+	ori $9, $0, 0xffffff
 	
+	li $10, 3		# Número de unidade de pixelsmero de unidade de pixels
+	li $11, 0              	# Contador
+	jal desenha_traco
+	
+	ori $9, $0, 0xd4faff	# Cor do fantasmaaf
+	
+	li $10, 9		# Número de unidade de pixelsmero de unidade de pixels
+	li $11, 0              	# Contador
+	jal desenha_traco
+	
+	addi $8, $8, 464	# 512 - 14*4		
+	li $10, 10 		# Número de unidade de pixelsmero de unidade de pixels
+	li $11, 0              	# Contador
+	jal desenha_traco
 	
 	
 	

@@ -1,9 +1,6 @@
 .text
 
-
-
 # RG: $8, $9, $10, $11, $14
-
 
 desenharfantasma:
 
@@ -84,7 +81,8 @@ desenharfantasma:
 	lw $31, 0($29)
 	add $4, $0, $0
 
-#--------------------------------------------------------------------------	
+#======================== SOBREPOSIÇAO ================================
+	
 	lui $8, 0x1001
 	add $8, $8, $4
 	
@@ -204,12 +202,45 @@ desenharfantasma:
 	li $11, 0              	# Contador
 	jal desenha_traco
 	
+#======================== ESPADA ================================
 	
+	lui $8, 0x1001
+	add $8, $8, $4
+	addi $8, $8, 3584
 	
+	ori $9, $0, 0x990000	# Cor do cabo
+	sw $9, 28($8)
 	
+	ori $9, $0, 0x999999	# Cor do lamina1
+	sw $9, 0($8)
 	
+	ori $9, $0, 0xb7b7b7	# Cor do lamina2
+	addi $8, $8, 512	
+	sw $9, 0($8)
 	
-
+	ori $9, $0, 0x999999	# Cor do lamina1
+	addi $8, $8, 4
+	li $10, 6 		# Número de unidade de pixelsmero de unidade de pixels
+	li $11, 0              	# Contador
+	jal desenha_traco
+	
+	ori $9, $0, 0x990000
+	sw $9, 0($8)
+	sw $9, 4($8)
+	sw $9, 8($8)
+	
+	ori $9, $0, 0xb7b7b7	# Cor do lamina2
+	addi $8, $8, 488
+	li $10, 6 		# Número de unidade de pixelsmero de unidade de pixels
+	li $11, 0              	# Contador
+	jal desenha_traco
+	
+	ori $9, $0, 0x990000
+	sw $9, 0($8)
+	sw $9, 4($8)
+	sw $9, 12($8)
+	sw $9, 512($8)
+	sw $9, 520($8)
 			
 retorna:
 	jr $31	

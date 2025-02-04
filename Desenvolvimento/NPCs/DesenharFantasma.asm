@@ -2,7 +2,7 @@
 
 # RG: $8, $9, $10, $11, $14
 
-.globl desenharFantasma:
+desenharFantasma:
 
 	sw $31, 0($29)  # Salva o endereço de retorno
 	addi $29, $29, -4  
@@ -262,12 +262,12 @@
 	
 	
 			
-retorna:
+retornFantasma:
 	jr $31	
 	
 	
 desenha_traco:
-	beq $11, $10, retorna 	# Condição de parada (passar pelo numero de unida de pixeis)
+	beq $11, $10, retornFantasma 	# Condição de parada (passar pelo numero de unida de pixeis)
 	
 	sw $9, 0($8)            # Salva o código da cor no endereço atual
 	add $8, $8, $14        	# Move para o próximo endereço

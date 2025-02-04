@@ -2,7 +2,7 @@
 
 # RG: $8, $9, $10, $11, $14
 
-desenharbaiacu:
+.globl desenharBaiacuVerde:
 	sw $31, 0($29)  # Salva o endereço de retorno
 	addi $29, $29, -4  
 

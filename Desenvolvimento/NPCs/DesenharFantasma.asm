@@ -4,8 +4,20 @@
 
 desenharfantasma:
 
-	sw $31, 0($29)
- 	add $29, $29, -4 	
+	sw $31, 0($29)  # Salva o endereço de retorno
+	addi $29, $29, -4  
+
+	# Fazendo o Backup na pilha
+	sw $8, 0($29)    # Salva $8 na pilha
+	addi $29, $29, -4
+	sw $9, 0($29)    # Salva $9 na pilha
+	addi $29, $29, -4
+	sw $10, 0($29)   # Salva $10 na pilha
+	addi $29, $29, -4
+	sw $11, 0($29)   # Salva $11 na pilha
+	addi $29, $29, -4
+	sw $14, 0($29)   # Salva $14 na pilha
+	addi $29, $29, -4	
 	
 	# Primeiro endereço de memória para o display
 	lui $8, 0x1001
@@ -235,12 +247,18 @@ desenharfantasma:
 	li $11, 0              	# Contador
 	jal desenha_traco
 	
-	ori $9, $0, 0x990000
-	sw $9, 0($8)
-	sw $9, 4($8)
-	sw $9, 12($8)
-	sw $9, 512($8)
-	sw $9, 520($8)
+	# Recuperando o Backup na pilha
+	addi $29, $29, 4
+	lw $14, 0($29)
+	addi $29, $29, 4
+	lw $11, 0($29)
+	addi $29, $29, 4
+	lw $10, 0($29)
+	addi $29, $29, 4
+	lw $9, 0($29)
+	addi $29, $29, 4
+	lw $8, 0($29)
+	addi $29, $29, 4
 	
 	
 			

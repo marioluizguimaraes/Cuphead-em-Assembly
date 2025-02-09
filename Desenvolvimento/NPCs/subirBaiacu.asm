@@ -48,7 +48,8 @@ retorna_subir:
 
 	jr $31	# Retorna para a função chamadora	 	
 
-  	 	
+  	
+#====================================================================================================
 
 removerBaiacu:	
 
@@ -85,6 +86,8 @@ removerBaiacu:
 	
 	li $13, 8  # Número de linhas
 	li $14, 0  # Contador de linhas
+
+#---------------------------------------------------------------------------------------------------
 	
 forLinha_removerBaiacu: # Loop para percorrer linhas
 	beq $13, $14 retorna_removerBaiacu # Se atingiu o número de linhas, retorna
@@ -111,7 +114,9 @@ proxima_linha_removerbaiacu:
 	addi $12, $8, 32768 # Ajusta o segundo endereço
 	
 	j forLinha_removerBaiacu # Continua percorrendo as linhas
-	
+
+#---------------------------------------------------------------------------------------------------
+			
 retorna_removerBaiacu:
 
 	# Recuperando o backup dos registradores
@@ -135,6 +140,8 @@ retorna_removerBaiacu:
 	lw $31, 0($29) # Recupera o endereço de retorno
 	
 	jr $31	# Retorna para a função chamadora
+	
+#====================================================================================================
 
 timer: 
   sw $31, 0($sp) # Salva o endereço de retorno

@@ -1,5 +1,7 @@
 .text
 
+.globl desenharFantasma
+
 # RG: $8, $9, $10, $11, $14
 
 desenharFantasma:

@@ -13,7 +13,7 @@ moverEsquerdaFantasma:
 	sw $20, 0($29)
 	addi $29, $29, -4
 	
-	li $4, 512 		# Define a posição inicial do baiacu
+	li $4, 256 		# Define a posição inicial do baiacu
 	jal desenharFantasma	# Chama a função para desenhar o baiacu verde
 	add $20, $0, $4 	# posição inicial
 	

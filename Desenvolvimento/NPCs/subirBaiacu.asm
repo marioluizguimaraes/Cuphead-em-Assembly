@@ -1,6 +1,7 @@
 .text
 
 # RG: $16, $20
+.globl subirBaiacu 
 
 subirBaiacu:
 

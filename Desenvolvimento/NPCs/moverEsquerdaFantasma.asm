@@ -2,7 +2,7 @@
 
 # RG: $16, $20
 
-subirBaiacu:
+moverEsquerdaFantasma:
 
 	sw $31, 0($29)  # Salva o endereço de retorno na pilha
 	addi $29, $29, -4  
@@ -13,8 +13,8 @@ subirBaiacu:
 	sw $20, 0($29)
 	addi $29, $29, -4
 	
-	li $4, 2048 		# Define a posição inicial do baiacu
-	jal desenharBaiacuVerde	# Chama a função para desenhar o baiacu verde
+	li $4, 512 		# Define a posição inicial do baiacu
+	jal desenharFantasma	# Chama a função para desenhar o baiacu verde
 	add $20, $0, $4 	# posição inicial
 	
 	lui $16, 0x1001  	
@@ -25,16 +25,16 @@ subirBaiacu:
 	
 	# Obtém a posição atual do baiacu
 	lw $4, 0($16)
-	jal removerBaiacu # Remove o baiacu da posição atual
+	jal removerFantasma # Remove o baiacu da posição atual
 	
 	# Calcula a nova posição subindo 512 unidades
 	lw $20, 0($16)
-	addi $4, $20, -512 
-	jal desenharBaiacuVerde # Desenha o baiacu na nova posição
+	addi $4, $20, -4 
+	jal desenharFantasma # Desenha o baiacu na nova posição
 	
 	# Atualiza a posição do baiacu
 	lw $20, 0($16)
-	addi $20, $20, -512  
+	addi $20, $20, -4 
 	sw $20, 0($16) # Armazena a nova posição
 	
 retorna_subir:
@@ -51,7 +51,7 @@ retorna_subir:
   	
 #====================================================================================================
 
-removerBaiacu:	
+removerFantasma:	
 
 # RG: $8, $10, $11, $12, $13, $14, $15, 17
 
@@ -81,21 +81,21 @@ removerBaiacu:
 	addi $12, $8, 32768 # Ajusta um segundo endereço
 	
 	# Inicializa as variáveis para percorrer a matriz
-	li $10, 9  # Número de colunas
+	li $10, 25  # Número de colunas
 	li $11, 0  # Contador de colunas
 	
-	li $13, 8  # Número de linhas
+	li $13, 11  # Número de linhas
 	li $14, 0  # Contador de linhas
 
 #---------------------------------------------------------------------------------------------------
 	
-forLinha_removerBaiacu: # Loop para percorrer linhas
-	beq $13, $14 retorna_removerBaiacu # Se atingiu o número de linhas, retorna
+forLinha_removerFantasma: # Loop para percorrer linhas
+	beq $13, $14 retorna_removerFantasma # Se atingiu o número de linhas, retorna
 	
 	add $15, $0, $8 # Salva o valor inicial da linha
 	
-forcoluna_removerBaiacu: # Loop para percorrer colunas
-	beq $10, $11, proxima_linha_removerbaiacu # Se atingiu o número de colunas, passa para a próxima linha
+forColuna_removerFantasma: # Loop para percorrer colunas
+	beq $10, $11, proxima_linha_removerFantasma # Se atingiu o número de colunas, passa para a próxima linha
 	
 	lw $17, 0($12) # Carrega um valor
 	sw $17, 0($8) # Substitui o valor na posição do baiacu
@@ -105,19 +105,19 @@ forcoluna_removerBaiacu: # Loop para percorrer colunas
 	
 	addi $11, $11, 1 # Incrementa a contagem de colunas
 	
-	j forcoluna_removerBaiacu # Continua percorrendo as colunas
+	j forColuna_removerFantasma # Continua percorrendo as colunas
 
-proxima_linha_removerbaiacu:
+proxima_linha_removerFantasma:
 	li $11, 0 # Reseta o contador de colunas
 	addi $14, $14, 1 # Incrementa a linha
 	addi $8, $15, 512 # Move para a próxima linha
 	addi $12, $8, 32768 # Ajusta o segundo endereço
 	
-	j forLinha_removerBaiacu # Continua percorrendo as linhas
+	j forLinha_removerFantasma # Continua percorrendo as linhas
 
 #---------------------------------------------------------------------------------------------------
 			
-retorna_removerBaiacu:
+retorna_removerFantasma:
 
 	# Recuperando o backup dos registradores
 	addi $29, $29, 4

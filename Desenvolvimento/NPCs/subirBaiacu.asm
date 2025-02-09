@@ -1,42 +1,162 @@
-
 .text
 
-# RG: $8, $9, $10, $11, $14
+# RG: $16, $20
 
-desenharBaiacuVerde:
+subirBaiacu:
 
-	sw $31, 0($29)  # Salva o endereço de retorno
+	sw $31, 0($29)  # Salva o endereço de retorno na pilha
 	addi $29, $29, -4  
 
-	# Fazendo o Backup na pilha
-	sw $8, 0($29)    # Salva $8 na pilha
+	# Fazendo backup dos registradores na pilha
+	sw $16, 0($29)
 	addi $29, $29, -4
-	sw $9, 0($29)    # Salva $9 na pilha
+	sw $20, 0($29)
 	addi $29, $29, -4
-	sw $10, 0($29)   # Salva $10 na pilha
-	addi $29, $29, -4
-	sw $11, 0($29)   # Salva $11 na pilha
-	addi $29, $29, -4
-	sw $14, 0($29)   # Salva $14 na pilha
-	addi $29, $29, -4	
- 	
- 	
- 	
 	
-	# Recuperando o Backup na pilha
+	li $4, 2048 		# Define a posição inicial do baiacu
+	jal desenharBaiacuVerde	# Chama a função para desenhar o baiacu verde
+	addi $20, $0, $4 	# posição inicial
+	
+	lui $16, 0x1001  	
+	addi $16, $16, 65576 	# ponteiro na memoria
+	sw $20, 0($16) 		# Armazena a posição atual do baiacu na memória
+	
+	jal timer  		# Chama a função de temporização
+	
+	# Obtém a posição atual do baiacu
+	lw $4, 0($16)
+	jal removerBaiacu # Remove o baiacu da posição atual
+	
+	# Calcula a nova posição subindo 512 unidades
+	lw $20, 0($16)
+	addi $4, $20, -512 
+	jal desenharBaiacuVerde # Desenha o baiacu na nova posição
+	
+	# Atualiza a posição do baiacu
+	lw $20, 0($16)
+	addi $20, $20, -512  
+	sw $20, 0($16) # Armazena a nova posição
+	
+retorna_subir:
+
+	addi $29, $29, 4
+	lw $20, 0($29)
+	addi $29, $29, 4
+	lw $16, 0($29)
+	addi $29, $29, 4
+	lw $31, 0($29)
+
+	jr $31	# Retorna para a função chamadora	 	
+
+  	 	
+
+removerBaiacu:	
+
+# RG: $8, $10, $11, $12, $13, $14, $15, 17
+
+	sw $31, 0($29)  # Salva o endereço de retorno na pilha
+	addi $29, $29, -4  
+
+	# Fazendo backup dos registradores na pilha
+	sw $8, 0($29)
+	addi $29, $29, -4
+	sw $10, 0($29)
+	addi $29, $29, -4
+	sw $11, 0($29)
+	addi $29, $29, -4
+	sw $12, 0($29)
+	addi $29, $29, -4
+	sw $13, 0($29)
+	addi $29, $29, -4
+	sw $14, 0($29)
+	addi $29, $29, -4	
+	sw $15, 0($29)
+	addi $29, $29, -4
+	sw $17, 0($29)
+	addi $29, $29, -4
+	
+	lui $8, 0x1001 # Carrega endereço base
+	add $8, $8, $4 # Calcula endereço do baiacu
+	addi $12, $8, 32768 # Ajusta um segundo endereço
+	
+	# Inicializa as variáveis para percorrer a matriz
+	li $10, 9  # Número de colunas
+	li $11, 0  # Contador de colunas
+	
+	li $13, 8  # Número de linhas
+	li $14, 0  # Contador de linhas
+	
+forLinha_removerBaiacu: # Loop para percorrer linhas
+	beq $13, $14 retorna_removerBaiacu # Se atingiu o número de linhas, retorna
+	
+	add $15, $0, $8 # Salva o valor inicial da linha
+	
+forcoluna_removerBaiacu: # Loop para percorrer colunas
+	beq $10, $11, proxima_linha_removerbaiacu # Se atingiu o número de colunas, passa para a próxima linha
+	
+	lw $17, 0($12) # Carrega um valor
+	sw $17, 0($8) # Substitui o valor na posição do baiacu
+	
+	addi $8, $8, 4 # Move para a próxima coluna
+	addi $12, $12, 4 # Move para a próxima coluna na memória
+	
+	addi $11, $11, 1 # Incrementa a contagem de colunas
+	
+	j forcoluna_removerBaiacu # Continua percorrendo as colunas
+
+proxima_linha_removerbaiacu:
+	li $11, 0 # Reseta o contador de colunas
+	addi $14, $14, 1 # Incrementa a linha
+	addi $8, $15, 512 # Move para a próxima linha
+	addi $12, $8, 32768 # Ajusta o segundo endereço
+	
+	j forLinha_removerBaiacu # Continua percorrendo as linhas
+	
+retorna_removerBaiacu:
+
+	# Recuperando o backup dos registradores
+	addi $29, $29, 4
+	lw $17, 0($29)
+	addi $29, $29, 4
+	lw $15, 0($29)
 	addi $29, $29, 4
 	lw $14, 0($29)
+	addi $29, $29, 4
+	lw $13, 0($29)
+	addi $29, $29, 4
+	lw $12, 0($29)
 	addi $29, $29, 4
 	lw $11, 0($29)
 	addi $29, $29, 4
 	lw $10, 0($29)
 	addi $29, $29, 4
-	lw $9, 0($29)
-	addi $29, $29, 4
 	lw $8, 0($29)
 	addi $29, $29, 4
-	lw $31, 0($29)
+	lw $31, 0($29) # Recupera o endereço de retorno
 	
-retorna:
-	jr $31	
-	
+	jr $31	# Retorna para a função chamadora
+
+timer: 
+  sw $31, 0($sp) # Salva o endereço de retorno
+  addi $sp, $sp, -4
+       
+  sw $20, 0($sp) # Salva $20 na pilha
+  addi $sp, $sp, -4
+  
+  # Define a quantidade de ciclos para a espera
+  addi $20, $0, 100000
+  
+forT:  
+  beq $20, $0, fimT # Se chegou a zero, finaliza o timer
+  nop # No operation
+  nop
+  addi $20, $20, -1 # Decrementa o contador      
+  j forT # Continua no loop    
+                
+fimT:  
+  	addi $sp, $sp, 4                                                    
+  	lw $20, 0($sp) # Restaura o valor de $20
+
+  	addi $sp, $sp, 4                                                    
+  	lw $31, 0($sp) # Restaura o endereço de retorno
+  	jr $31 # Retorna para a função chamadora

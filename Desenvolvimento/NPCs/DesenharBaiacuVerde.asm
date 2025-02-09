@@ -1,4 +1,5 @@
 .text
+.globl desenharBaiacuVerde
 
 # RG: $8, $9, $10, $11, $14
 

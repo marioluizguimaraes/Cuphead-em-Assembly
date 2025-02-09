@@ -222,6 +222,10 @@ desenharFantasma:
 	
 	ori $9, $0, 0x990000	# Cor do cabo
 	sw $9, 28($8)
+	sw $9, 1052($8)
+	sw $9, 1056($8)
+	sw $9, 1064($8)
+	sw $9, 1564($8)
 	
 	ori $9, $0, 0x999999	# Cor do lamina1
 	sw $9, 0($8)
@@ -259,7 +263,6 @@ desenharFantasma:
 	addi $29, $29, 4
 	lw $8, 0($29)
 	addi $29, $29, 4
-	
 	
 			
 retornFantasma:

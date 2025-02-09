@@ -1,6 +1,7 @@
 .text
 
 # RG: $8, $9, $10, $11, $14
+.globl desenharBaiacuVermelho
 
 desenharBaiacuVermelho:
 	
